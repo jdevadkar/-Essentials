@@ -24,7 +24,7 @@ import { JQ_TOKEN } from './jQuery.service';
   `]
 })
 export class SimpleModelComponent {
-  @ViewChild('modalcontainer') containerEl: ElementRef;
+  @ViewChild('modalcontainer', { static: false }) containerEl: ElementRef;
   @Input() title: string;
   @Input() elementId: string;
   @Input() closeOnBodyClick: string;
