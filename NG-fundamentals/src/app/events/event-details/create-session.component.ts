@@ -22,21 +22,21 @@ export class CreateSessionComponent implements OnInit {
   presenter: FormControl;
   duration: FormControl;
   level: FormControl;
-  abtract: FormControl;
+  abstract: FormControl;
 
   ngOnInit() {
     this.name = new FormControl('', Validators.required);
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
     this.level = new FormControl('', Validators.required);
-    this.abtract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictWords(['foo', 'bar'])]);
+    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictWords(['foo', 'bar'])]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
       presenter: this.presenter,
       duration: this.duration,
       level: this.level,
-      abstract: this.abtract
+      abstract: this.abstract
     });
   }
 

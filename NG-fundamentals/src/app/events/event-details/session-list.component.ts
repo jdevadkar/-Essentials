@@ -31,8 +31,9 @@ export class SessionListComponent implements OnChanges {
     } else {
       this.voterService.addVoter(session, this.auth.currentUser.userName);
     }
-    if (this.sortBy === 'votes')
+    if (this.sortBy === 'votes') {
       this.visibleSessions.sort(sortByVotesDesc);
+    }
   }
 
   userHasVoted(session: ISession) {
@@ -52,9 +53,7 @@ export class SessionListComponent implements OnChanges {
 }
 
 function sortByNameAsc(s1: ISession, s2: ISession) {
-  if (s1.name > s2.name) return 1;
-  else if (s1.name === s2.name) return 0;
-  else return -1;
+  if (s1.name > s2.name) { return 1; } else if (s1.name === s2.name) { return 0; } else { return -1; }
 }
 
 function sortByVotesDesc(s1: ISession, s2: ISession) {

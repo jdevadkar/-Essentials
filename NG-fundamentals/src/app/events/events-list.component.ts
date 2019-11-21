@@ -26,8 +26,9 @@ import { IEvent } from './shared';
 })
 export class EventListComponent implements OnInit {
   events: IEvent[];
+  thumbnail: any;
 
-  constructor(private eventService: EventService,  private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {

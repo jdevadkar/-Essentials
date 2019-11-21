@@ -36,7 +36,7 @@
     </div>
     <div class="form-group"  [ngClass] ="{'error':abstract.invalid && abstract.dirty}">
       <label for="abstract">Abstract:</label>
-      <em *ngIf= "abstract.invalid && abstract.dirty && abstract.required">Required</em>
+      <em *ngIf= "abstract.invalid && abstract.dirty">Required</em>
       <em *ngIf= "abstract.invalid && abstract.dirty && abstract?.errors.maxLength">Cannot exceed 400 charaters</em>
        <em *ngIf= "abstract.invalid && abstract.dirty && abstract?.errors.restrictedWords">Restricted Words found:{{abstract.errors.restrictedWords}}</em>
 
