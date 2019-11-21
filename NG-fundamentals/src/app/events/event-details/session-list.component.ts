@@ -11,6 +11,7 @@ export class SessionListComponent implements OnChanges {
   @Input() sessions: ISession[];
   @Input() filterBy: string;
   @Input() sortBy: string;
+  @Input() eventId: number;
   visibleSessions: ISession[] = [];
 
   constructor(public auth: AuthService, private voterService: VoterService) {
