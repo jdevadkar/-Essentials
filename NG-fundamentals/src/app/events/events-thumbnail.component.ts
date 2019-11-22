@@ -3,7 +3,7 @@ import { IEvent } from './shared';
 
 
 @Component({
-  selector: 'event-thumbnail',
+  selector: 'app-event-thumbnail',
   template: `
   <div [routerLink]="['/events',event.id]" class="well hoverwell thumbnail" >
       <h2>{{event?.name | uppercase}}</h2>
@@ -37,17 +37,16 @@ import { IEvent } from './shared';
 
 export class EventThumbnailComponent implements OnInit {
   @Input() event: IEvent;
+  @Output() eventClick = new EventEmitter();
+  sameProperty: any = 'some value';
 
-  @Output() eventClick = new EventEmitter()
-  sameProperty: any = "some value";
   constructor() { }
-
   ngOnInit() { }
 
   handleClickMe() {
     this.eventClick.emit(this.event.name);
   }
   logFoo() {
-    console.log('foo')
+    console.log('foo');
   }
 }

@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
   `]
 })
 export class LoginComponent {
-  userName
-  password
-  mouseoverLogin
+  userName;
+  password;
+  mouseoverLogin;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -24,8 +24,5 @@ export class LoginComponent {
 
   cancel() {
     this.router.navigate(['events']);
-
   }
-
-
 }

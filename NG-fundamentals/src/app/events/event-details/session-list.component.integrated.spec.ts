@@ -16,11 +16,11 @@ describe('SessionListComponent', () => {
     debugEl: DebugElement
 
   beforeEach(async(() => {
-    let mockAuthService = {
+    const mockAuthService = {
       isAuthenticated: () => true,
       currentUser: { userName: 'Joe' }
     };
-    let mockVoterService = {
+    const mockVoterService = {
       userHasVoted: () => true
     };
     TestBed.configureTestingModule({
@@ -34,16 +34,16 @@ describe('SessionListComponent', () => {
         { provide: AuthService, useValue: mockAuthService },
         { provide: VoterService, useValue: mockVoterService }],
       schemas: [NO_ERRORS_SCHEMA]
+    });
+  }));
 
-    })
-  }))
   beforeEach(() => {
     fixture = TestBed.createComponent(SessionListComponent);
     component = fixture.componentInstance;
     debugEl = fixture.debugElement;
     element = fixture.nativeElement;
 
-  })
+  });
   describe('initial display', () => {
     it('dhould have the correct session title', () => {
       component.sessions = [{
@@ -59,12 +59,7 @@ describe('SessionListComponent', () => {
       fixture.detectChanges();
 
       expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
-
       expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
-    })
-
-
-  })
-
-
-})
+    });
+  });
+});

@@ -3,7 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ISession, restrictWords } from '../shared';
 
 @Component({
-  selector: 'create-session',
+  selector: 'app-create-session',
   templateUrl: './create-session.component.html',
   styles: [`
     em {float:right; color:#E05C65; padding-left:10px;}
@@ -40,9 +40,8 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
-
   saveSession(formValues) {
-    let session: ISession = {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       duration: formValues.duration,
@@ -50,7 +49,7 @@ export class CreateSessionComponent implements OnInit {
       presenter: formValues.presenter,
       abstract: formValues.abstract,
       voters: []
-    }
+    };
     this.saveNewSession.emit(session);
   }
 

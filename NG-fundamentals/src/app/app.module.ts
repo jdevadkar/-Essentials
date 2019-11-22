@@ -34,8 +34,8 @@ import { UserModules } from './user/user/user.module';
 import { AuthService } from './user/user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-let toastr: Toastr = window['tpastr'];
-let jQuery = window['$'];
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -77,7 +77,8 @@ let jQuery = window['$'];
 export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
-  if (component.isDirty)
+  if (component.isDirty) {
     return window.confirm('You have not saved this event, do you really want to cancel?')
-  return true
+  }
+  return true;
 }

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IEvent } from './shared';
 
 @Component({
-  selector: 'events-list',
+  selector: 'app-events-list',
   template: `
   <div>
     <h1>Upcoming Angular Events</h1>
@@ -14,8 +14,8 @@ import { IEvent } from './shared';
     </div>
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
-        <event-thumbnail (eventClick)="handleEventClicked($event)"
-        [event]= "event"></event-thumbnail>
+        <app-event-thumbnail (eventClick)="handleEventClicked($event)"
+        [event]= "event"></app-event-thumbnail>
       </div>
     </div>
      <!--<h3>{{thumbnail.sameProperty}}</h3>-->
@@ -32,7 +32,7 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.events = this.route.snapshot.data['events'];
+    this.events = this.route.snapshot.data.events;
   }
 
   handleEventClicked(data) {

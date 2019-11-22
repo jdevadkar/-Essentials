@@ -10,7 +10,7 @@ export class AuthService {
       userName: userName,
       firstName: 'John',
       lastName: 'Papa',
-    }
+    };
   }
   isAuthenticated() {
     return !!this.currentUser;

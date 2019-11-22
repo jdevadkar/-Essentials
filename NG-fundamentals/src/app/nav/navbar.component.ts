@@ -3,7 +3,7 @@ import { AuthService } from '../user/user/auth.service';
 import { ISession, EventService } from '../events';
 
 @Component({
-  selector: 'nav-bar',
+  selector: 'app-nav-bar',
   templateUrl: './navbar.component.html',
   styles: [`
   .nav.navbar-nav {font-size:15px;}
@@ -14,10 +14,10 @@ import { ISession, EventService } from '../events';
 })
 
 export class NavBarComponent implements OnInit {
+
   searchTerm: string;
   foundSessions: ISession[];
   constructor(public authService: AuthService, private eventService: EventService) {
-
   }
 
   ngOnInit() { }

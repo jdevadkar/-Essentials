@@ -14,14 +14,13 @@ import { EventService } from './shared';
   `]
 })
 
-export class CreateEventComponent implements OnInit{
+export class CreateEventComponent implements OnInit {
   newEvent: any;
-  isDirty: boolean = true
+  isDirty = true;
   constructor(private router: Router, private eventService: EventService) {
   }
-  ngOnInit()
-  {
-    this.newEvent={
+  ngOnInit() {
+    this.newEvent = {
       id: 2,
       name: 'ng-nl',
       date: new Date('4/15/2037'),
@@ -33,14 +32,13 @@ export class CreateEventComponent implements OnInit{
         city: 'Amsterdam',
         country: 'Netherlands'
       }
+    };
   }
-}
 
   saveEvent(formValues) {
     this.eventService.saveEvent(formValues);
     this.isDirty = false;
     this.router.navigate(['/events']);
-
   }
 
   cancel() {
