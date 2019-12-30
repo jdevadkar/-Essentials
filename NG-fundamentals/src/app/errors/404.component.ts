@@ -11,6 +11,9 @@ import { Component } from '@angular/core';
       text-align: center;
     }`]
 })
+/**
+ * The Error component class If path is not match then automatically load this component.
+ */
 export class Error404Component {
   constructor() {
   }

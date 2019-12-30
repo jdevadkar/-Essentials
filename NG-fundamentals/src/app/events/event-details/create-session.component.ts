@@ -14,17 +14,24 @@ import { ISession, restrictWords } from '../shared';
     .error :ms-input-placeholder {color:#999 }
   `]
 })
+/**
+ * The Create session component class.
+ */
 export class CreateSessionComponent implements OnInit {
   @Output() saveNewSession = new EventEmitter();
   @Output() cancelAddSession = new EventEmitter();
+  // Define form controls and  group.
   newSessionForm: FormGroup;
   name: FormControl;
   presenter: FormControl;
   duration: FormControl;
   level: FormControl;
   abstract: FormControl;
-
+  /**
+   * The ngOnInit method.
+   */
   ngOnInit() {
+    // Initilize varibles.
     this.name = new FormControl('', Validators.required);
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
@@ -40,6 +47,10 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
+  /**
+   * The save  session method.
+   * @param formValues
+   */
   saveSession(formValues) {
     const session: ISession = {
       id: undefined,
@@ -53,6 +64,9 @@ export class CreateSessionComponent implements OnInit {
     this.saveNewSession.emit(session);
   }
 
+  /**
+   * The cancel method.
+   */
   cancel() {
     this.cancelAddSession.emit();
   }

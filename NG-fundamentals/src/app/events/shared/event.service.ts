@@ -2,6 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core'
 import { Subject, Observable } from 'rxjs';
 import { IEvent, ISession } from './event.model';
 
+/**
+ * This is event service class. It is reusable service.
+ */
 @Injectable()
 export class EventService {
   getEvents(): Observable<IEvent[]> {
@@ -10,6 +13,10 @@ export class EventService {
     return subject;
   }
 
+  /**
+   * This is save event method.
+   * @param event
+   */
   saveEvent(event) {
     event.id = 999;
     event.session = [];
@@ -17,15 +24,27 @@ export class EventService {
 
   }
 
+  /**
+   * This is get event method.
+   * @param id
+   * @returns event
+   */
   getEvent(id: number): IEvent {
     return EVENTS.find(event => event.id === id)
-
   }
+  /**
+   * This is update event method.
+   * @param event
+   */
   updateEvent(event) {
     let index = EVENTS.findIndex(x => x.id = event.id);
     EVENTS[index] = event;
   }
 
+  /**
+   * This is search sessions method.
+   * @param searchTerm
+   */
   searchSessions(searchTerm: string) {
     var term = searchTerm.toLocaleLowerCase();
     var results: ISession[] = [];
@@ -47,6 +66,9 @@ export class EventService {
 
   }
 }
+/**
+ * Declare event data.
+ */
 const EVENTS: IEvent[] = [
   {
     id: 1,
@@ -352,4 +374,4 @@ const EVENTS: IEvent[] = [
       }
     ]
   }
-]
+];

@@ -11,14 +11,25 @@ import { IEvent, ISession } from '../shared';
     a { cursor:pointer}
   `]
 })
+/**
+ * This is event details component class.
+ */
 export class EventDetailsComponent implements OnInit {
   event: IEvent;
   addMode: boolean;
   filterBy = 'all';
   sortBy = 'votes';
 
+  /**
+   *
+   * @param eventService Creates instance.
+   * @param route
+   */
   constructor(private eventService: EventService, private route: ActivatedRoute) {
   }
+  /**
+   * This is ngOnInit method. declare variables at the time of class loading.
+   */
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       this.event = this.eventService.getEvent(+params.id);
@@ -26,10 +37,17 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
+  /**
+   * This is add session method.
+   */
   addSession() {
     this.addMode = true;
   }
 
+  /**
+   *
+   * @param session This is save new session method.
+   */
   saveNewSession(session: ISession) {
     const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
     session.id = nextId + 1;
@@ -38,6 +56,9 @@ export class EventDetailsComponent implements OnInit {
     this.addMode = false;
   }
 
+  /**
+   * This is cancel Add session method.
+   */
   cancelAddSession() {
     this.addMode = false;
   }

@@ -24,17 +24,31 @@ import { IEvent } from './shared';
   `,
   styles: [`.well div{color:red}`]
 })
+/**
+ * This is Event list component class.
+ */
 export class EventListComponent implements OnInit {
   events: IEvent[];
   thumbnail: any;
 
+  /**
+   * Create instances.
+   * @param eventService
+   * @param route
+   */
   constructor(private eventService: EventService, private route: ActivatedRoute) {
   }
 
+  /**
+   * This is ngOnInit method.
+   */
   ngOnInit() {
     this.events = this.route.snapshot.data.events;
   }
 
+  /**
+   * This is handle event clicked method.
+   */
   handleEventClicked(data) {
     console.log('Received:', data);
   }

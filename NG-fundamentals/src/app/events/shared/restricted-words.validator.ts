@@ -1,5 +1,8 @@
 import { FormControl } from '@angular/forms'
-
+/**
+ * This is restrict words function.
+ * @param words
+ */
 export function restrictWords(words) {
   return (control: FormControl): { [key: string]: any } => {
     if (!words) return null

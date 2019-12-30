@@ -15,12 +15,27 @@ import { Toastr, TOASTR_TOKEN } from 'src/app/common/toastr.service';
     .error :ms-input-placeholder {color:#999 }
   `]
 })
+/**
+ * This is profile component class
+ */
 export class ProfileComponent implements OnInit {
+  /**
+   * Define form controls and Group.
+   */
   private firstName: FormControl;
   private lastName: FormControl;
   profileForm: FormGroup;
+  /**
+   * Creates an instance.
+   * @param auth
+   * @param router
+   * @param toastr
+   */
   constructor(private auth: AuthService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
   }
+  /**
+   * This is ngOnInit method. Initalize values.
+   */
   ngOnInit() {
     this.firstName = new FormControl(this.auth.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl(this.auth.currentUser.lastName, Validators.required);
@@ -30,6 +45,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * This is cave profile method.
+   * @param formValues
+   */
   saveProfile(formValues) {
     if (this.profileForm.valid) {
       this.auth.updateCurrentUser(formValues.firstName, formValues.lastName);
@@ -37,13 +56,24 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  /**
+   * This is validate first name method.
+   * @returns true or false
+   */
   validateFirstName() {
     return this.firstName.valid || this.firstName.untouched;
   }
+  /**
+   * This is validate last name method.
+   * @returns true or false.
+   */
   validateLastName() {
     return this.lastName.valid || this.lastName.untouched;
   }
 
+  /**
+   * This is cancel method. navigate to events component.
+   */
   cancel() {
     this.router.navigate(['events']);
   }

@@ -1,3 +1,6 @@
+/**
+ * Define event interface and its properties.
+ */
 export interface IEvent {
   id: number;
   name: string;
@@ -13,6 +16,9 @@ export interface IEvent {
   sessions: ISession[];
 }
 
+/**
+ * Define session interface and its properties.
+ */
 export interface ISession {
   id: number;
   name: string;

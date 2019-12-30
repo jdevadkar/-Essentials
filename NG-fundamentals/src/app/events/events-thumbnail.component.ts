@@ -34,18 +34,27 @@ import { IEvent } from './shared';
 
   `]
 })
-
+/**
+ * This is event thumbnail component class.
+ */
 export class EventThumbnailComponent implements OnInit {
   @Input() event: IEvent;
   @Output() eventClick = new EventEmitter();
   sameProperty: any = 'some value';
-
-  constructor() { }
+  /**
+   * This is ngOnInit method.
+   */
   ngOnInit() { }
 
+  /**
+   * This is handle click me method.
+   */
   handleClickMe() {
     this.eventClick.emit(this.event.name);
   }
+  /**
+   * This is log foo method.
+   */
   logFoo() {
     console.log('foo');
   }

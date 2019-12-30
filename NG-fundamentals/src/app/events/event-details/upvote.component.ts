@@ -15,6 +15,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </div>
   `
 })
+/**
+ * This is up vote component
+ */
 export class UpvoteComponent {
   @Input() count: number;
   @Input() set voted(val) {
@@ -23,6 +26,9 @@ export class UpvoteComponent {
   @Output() vote = new EventEmitter();
   iconColor: string;
 
+  /**
+   * This is onClick method. emit the vote.
+   */
   onClick() {
     this.vote.emit({});
   }

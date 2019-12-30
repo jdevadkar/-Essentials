@@ -1,3 +1,6 @@
+/**
+ * This is common declaration file for event folder.
+ */
 export * from './create-event.component';
 export * from './events-thumbnail.component';
 export * from './events-list.component';

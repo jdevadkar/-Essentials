@@ -12,16 +12,29 @@ import { ISession, EventService } from '../events';
   li > a.active { color: #F979224;}
   `]
 })
-
+/**
+ * This is nav bar component class.
+ */
 export class NavBarComponent implements OnInit {
 
   searchTerm: string;
   foundSessions: ISession[];
+  /**
+   *
+   * @param authService Create instances.
+   * @param eventService
+   */
   constructor(public authService: AuthService, private eventService: EventService) {
   }
-
+  /**
+   * This is ngOninit method.
+   */
   ngOnInit() { }
 
+  /**
+   *  This is search session method.
+   * @param searchTerm
+   */
   searchSessions(searchTerm) {
     this.eventService.searchSessions(searchTerm).subscribe(sessions => {
       this.foundSessions = sessions;

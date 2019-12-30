@@ -2,11 +2,18 @@ import { Directive } from '@angular/core';
 import { Validator, FormGroup, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[validateLocation]',
+  selector: "[validateLocation]",
   providers: [{ provide: NG_VALIDATORS, useExisting: LocationValidator, multi: true }]
 })
+/**
+ * This is location Validator class. Created custom directive.
+ */
 export class LocationValidator implements Validator {
 
+  /**
+   * This is validate method. validate location.
+   * @param formGroup
+   */
   validate(formGroup: FormGroup): { [key: string]: any } {
     const addressControl = formGroup.controls.address;
     const cityControl = formGroup.controls.city;

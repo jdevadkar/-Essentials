@@ -74,8 +74,15 @@ const jQuery = window['$'];
     VoterService
   ]
 })
+/**
+ * This is app module.
+ */
 export class AppModule { }
-
+/**
+ * This is chech dirty state method.
+ * @param component
+ * @returns true/false
+ */
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
     return window.confirm('You have not saved this event, do you really want to cancel?')

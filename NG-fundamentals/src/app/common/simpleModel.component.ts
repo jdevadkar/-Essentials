@@ -23,15 +23,28 @@ import { JQ_TOKEN } from './jQuery.service';
     .modal-body { height:250px; overflow-y:scroll;}
   `]
 })
+/**
+ * This is simple model component class.
+ */
 export class SimpleModelComponent {
+  /**
+   * Define class variables.
+   */
   @ViewChild('modalcontainer', { static: false }) containerEl: ElementRef;
   @Input() title: string;
   @Input() elementId: string;
   @Input() closeOnBodyClick: string;
 
+  /**
+   *
+   * @param $ Creates Instance.
+   */
   constructor(@Inject(JQ_TOKEN) private $: any) {
   }
 
+  /**
+   * This is close modal method.
+   */
   closeModal() {
     if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
       this.$(this.containerEl.nativeElement).modal('hide');

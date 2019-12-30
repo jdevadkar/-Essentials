@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>
     `
 })
+/**
+ * This is a Events app component. Starting point of Application.
+ */
 export class EventsAppComponent {
+  // The title.
   title = 'app';
 }
